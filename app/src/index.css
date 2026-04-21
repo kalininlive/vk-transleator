@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&family=Rubik:wght@700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Roboto', sans-serif;
+}
+
+.font-rubik {
+  font-family: 'Rubik', sans-serif;
+}
+
+.font-roboto {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: transparent !important;
+}
+
+/* Ticker: single text scrolls right→left across viewport */
+@keyframes ticker {
+  from { transform: translateX(100vw); }
+  to   { transform: translateX(-100%); }
+}
+
+/* Fire/overtime glow + pulse */
+@keyframes fire {
+  0%, 100% {
+    text-shadow: 0 0 10px #f00, 0 0 20px #f00, 0 0 40px #ff0;
+    transform: scale(1);
+  }
+  50% {
+    text-shadow: 0 0 20px #f00, 0 0 50px #f80, 0 0 100px #f00;
+    transform: scale(1.08);
+  }
+}
+
+.animate-fire {
+  animation: fire 1.2s ease-in-out infinite;
+}
+
+@keyframes goal-pulse {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+.animate-goal-pulse {
+  animation: goal-pulse 0.8s ease-in-out infinite;
+}
+
+/* Stadium board glow animations */
+@keyframes blue-glow {
+  0%, 100% { box-shadow: -4px 0 20px #1e6fff44, inset 0 0 20px #1e40af11; }
+  50%       { box-shadow: -6px 0 35px #1e6fff88, inset 0 0 30px #1e40af22; }
+}
+@keyframes red-glow {
+  0%, 100% { box-shadow: 4px 0 20px #ff1e1e44, inset 0 0 20px #7f1d1d11; }
+  50%       { box-shadow: 6px 0 35px #ff1e1e88, inset 0 0 30px #7f1d1d22; }
+}
+
+.camera-bg {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}

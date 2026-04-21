@@ -1,0 +1,10 @@
+services:
+  vk-nginx-rtmp:
+    image: tiangolo/nginx-rtmp
+    container_name: vk-nginx-rtmp
+    restart: always
+    volumes:
+      - /opt/vk-stream/nginx-rtmp.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - "1935:1935"
+      - "8080:8080"
